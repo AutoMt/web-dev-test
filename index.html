@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stimulus + TailwindCSS Demo</title>
+  <!-- TailwindCSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Stimulus.js CDN -->
+  <script type="module">
+    import { Application } from "https://cdn.skypack.dev/@hotwired/stimulus";
+    import HelloController from "./controllers/hello_controller.js";
+
+    window.Stimulus = Application.start();
+    Stimulus.register("hello", HelloController);
+  </script>
+</head>
+<body class="bg-gray-100 font-sans leading-normal tracking-normal">
+  <div class="container mx-auto p-4">
+    <h1 class="text-3xl font-bold text-center mb-6">Stimulus + TailwindCSS Demo</h1>
+
+    <div class="bg-white p-6 rounded shadow-md text-center">
+      <div data-controller="hello">
+        <p class="text-xl mb-4" data-hello-target="output">Welcome to Stimulus and TailwindCSS!</p>
+        <button class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600" data-action="click->hello#greet">Click Me</button>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
